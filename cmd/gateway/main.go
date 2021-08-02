@@ -186,7 +186,7 @@ func getJSONGateway(ctx context.Context, c *cli.Context) (http.Handler, error) {
 	if len(bindParts) != 2 {
 		log.Fatal("get port from bind failed")
 	}
-	apiEndpoint := fmt.Sprintf("127.0.0.1:%s", bindParts[1])
+	apiEndpoint := fmt.Sprintf("0.0.0.0:%s", bindParts[1])
 
 	mux := runtime.NewServeMux(runtime.WithMarshalerOption(
 		runtime.MIMEWildcard,
@@ -308,7 +308,7 @@ func main() {
 		cli.StringFlag{
 			Name:   "ddsvr-addr",
 			Usage:  "ip:port  connect to device drive grpc server",
-			Value:  "localhost:9973",
+			Value:  "0.0.0.0:9973",
 			EnvVar: "DEVADDR",
 		},
 		cli.BoolFlag{
