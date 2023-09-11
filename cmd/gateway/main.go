@@ -13,18 +13,18 @@ import (
 	"syscall"
 
 	assetfs "github.com/elazarl/go-bindata-assetfs"
+	pb "github.com/ffip/iotgateway/api"
+	"github.com/ffip/iotgateway/internal/common"
+	"github.com/ffip/iotgateway/internal/devapi"
+	gw "github.com/ffip/iotgateway/internal/gateway"
+	"github.com/ffip/iotgateway/internal/templates"
+	"github.com/ffip/iotgateway/internal/upgrade"
 	"github.com/gorilla/mux"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
 	"github.com/urfave/cli"
 	"github.com/urfave/negroni"
-	pb "github.com/yjiong/iotgateway/api"
-	"github.com/yjiong/iotgateway/internal/common"
-	"github.com/yjiong/iotgateway/internal/devapi"
-	gw "github.com/yjiong/iotgateway/internal/gateway"
-	"github.com/yjiong/iotgateway/internal/templates"
-	"github.com/yjiong/iotgateway/internal/upgrade"
 	"golang.org/x/net/websocket"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
@@ -43,7 +43,7 @@ func init() {
 		" >  <| | | | | (_| | (_) | | | | (_| |", `/_/\_\_|_| |_|\__,_|\___/|_| |_|\__, |`, `                                |___/ `)
 }
 
-//VERSION ..
+// VERSION ..
 var VERSION string
 
 func run(c *cli.Context) error {
@@ -53,7 +53,7 @@ func run(c *cli.Context) error {
 	defer cancel()
 	log.WithFields(log.Fields{
 		"version": common.VERSION,
-		"docs":    "https://github.com/yjiong/iotgateway",
+		"docs":    "https://github.com/ffip/iotgateway",
 	}).Info("starting iot gateway programer")
 
 	mqttconfig := map[string]string{
@@ -227,7 +227,7 @@ func main() {
 	app.Version = common.VERSION
 	app.Author = "yaojiong"
 	app.Email = "yjiong@msn.com"
-	app.Copyright = "See https://github.com/yjiong/iotgateway for copyright information"
+	app.Copyright = "See https://github.com/ffip/iotgateway for copyright information"
 	app.Action = run
 	app.Flags = []cli.Flag{
 		cli.StringFlag{
@@ -288,9 +288,9 @@ func main() {
 			EnvVar: "SERVER_ID",
 		},
 		cli.IntFlag{
-			Name:  "interval",
-			Value: 300,
-			Usage: "auto updata interval",
+			Name:   "interval",
+			Value:  300,
+			Usage:  "auto updata interval",
 			EnvVar: "INTERVAL	",
 		},
 		cli.StringFlag{

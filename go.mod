@@ -1,4 +1,5 @@
-module github.com/yjiong/iotgateway
+module github.com/ffip/iotgateway
+go 1.18
 
 require (
 	github.com/bitly/go-simplejson v0.0.0-20170206154632-da1a8928f709
