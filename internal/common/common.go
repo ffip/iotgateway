@@ -1,13 +1,14 @@
 package common
 
 import (
-	log "github.com/sirupsen/logrus"
-	"github.com/yjiong/iotgateway/config"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"runtime"
 	"strings"
+
+	"github.com/ffip/iotgateway/config"
+	log "github.com/sirupsen/logrus"
 )
 
 // INTERFACES ...

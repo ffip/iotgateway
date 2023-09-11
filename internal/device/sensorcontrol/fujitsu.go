@@ -4,10 +4,11 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	simplejson "github.com/bitly/go-simplejson"
-	log "github.com/sirupsen/logrus"
-	"github.com/yjiong/iotgateway/internal/device"
 	"strconv"
+
+	simplejson "github.com/bitly/go-simplejson"
+	"github.com/ffip/iotgateway/internal/device"
+	log "github.com/sirupsen/logrus"
 )
 
 var MASTERSLAVE = map[int]string{
@@ -139,7 +140,7 @@ var SETFANGDONG = map[int]string{
 	2: "防冻液运行",
 }
 
-//outM
+// outM
 var LOWNOISE = map[int]string{
 	0: "性能优先无效",
 	1: "性能优先有效",
@@ -171,7 +172,7 @@ var EDRLJSYX = map[int]string{
 	8: "40%",
 }
 
-//allInM
+// allInM
 var ALLONOFF = map[int]string{
 	0: "不变",
 	1: "所有室内机均停止",
@@ -233,9 +234,9 @@ func (d *FUJITSU) GetElement() (device.Dict, error) {
 		/***********************设备的特有的参数*****************************/
 	}
 	data := device.Dict{
-		device.DevID: d.Devid,
-		device.DevType:  d.Devtype,
-		device.DevConn:  conn,
+		device.DevID:   d.Devid,
+		device.DevType: d.Devtype,
+		device.DevConn: conn,
 	}
 	return data, nil
 }
@@ -312,9 +313,9 @@ func (d *FUJITSU) HelpDoc() interface{} {
 		/***********操作设备的参数*****************************/
 	}
 	data := device.Dict{
-		device.DevID: "添加设备对象的id",
-		device.DevType:  "FUJITSU", //设备类型
-		device.DevConn:  conn,
+		device.DevID:   "添加设备对象的id",
+		device.DevType: "FUJITSU", //设备类型
+		device.DevConn: conn,
 	}
 	devUpdate := device.Dict{
 		"request": device.Dict{

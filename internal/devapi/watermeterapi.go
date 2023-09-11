@@ -9,13 +9,13 @@ import (
 	//log "github.com/sirupsen/logrus"
 
 	sjson "github.com/bitly/go-simplejson"
+	pb "github.com/ffip/iotgateway/api"
+	"github.com/ffip/iotgateway/internal/device"
+	"github.com/ffip/iotgateway/internal/gateway"
 	log "github.com/sirupsen/logrus"
-	pb "github.com/yjiong/iotgateway/api"
-	"github.com/yjiong/iotgateway/internal/device"
-	"github.com/yjiong/iotgateway/internal/gateway"
 )
 
-//WaterMeterapi ..
+// WaterMeterapi ..
 type WaterMeterapi struct {
 	gw *gateway.Gateway
 }
@@ -27,7 +27,7 @@ func NewWaterMeterapi(gateway *gateway.Gateway) *WaterMeterapi {
 	}
 }
 
-//WaterMeterUpdate ....
+// WaterMeterUpdate ....
 func (p *WaterMeterapi) WaterMeterUpdate(ctx context.Context, req *pb.WaterMeterUpdateRequest) (*pb.WaterMeterUpdateResponse, error) {
 	gateway.GrpcMsg = "req"
 	defer func() {

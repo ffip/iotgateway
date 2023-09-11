@@ -9,13 +9,13 @@ import (
 	//log "github.com/sirupsen/logrus"
 
 	sjson "github.com/bitly/go-simplejson"
+	pb "github.com/ffip/iotgateway/api"
+	"github.com/ffip/iotgateway/internal/device"
+	"github.com/ffip/iotgateway/internal/gateway"
 	log "github.com/sirupsen/logrus"
-	pb "github.com/yjiong/iotgateway/api"
-	"github.com/yjiong/iotgateway/internal/device"
-	"github.com/yjiong/iotgateway/internal/gateway"
 )
 
-//Dtl645_2007api ..
+// Dtl645_2007api ..
 type Dtl645_2007api struct {
 	gw *gateway.Gateway
 }
@@ -27,7 +27,7 @@ func NewDtl645_2007api(gateway *gateway.Gateway) *Dtl645_2007api {
 	}
 }
 
-//Dtl645_2007Update ....
+// Dtl645_2007Update ....
 func (p *Dtl645_2007api) Dtl645_2007Update(ctx context.Context, req *pb.Dtl645_2007UpdateRequest) (*pb.Dtl645_2007UpdateResponse, error) {
 	gateway.GrpcMsg = "req"
 	defer func() {

@@ -10,7 +10,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/yjiong/iotgateway/serial"
+	"github.com/ffip/iotgateway/serial"
 )
 
 const (

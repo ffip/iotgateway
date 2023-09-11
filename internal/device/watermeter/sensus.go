@@ -3,14 +3,15 @@ package watermeter
 import (
 	"errors"
 	"fmt"
-	log "github.com/sirupsen/logrus"
-	"github.com/yjiong/iotgateway/internal/device"
-	"github.com/yjiong/iotgateway/serial"
 	"strconv"
 	"time"
+
+	"github.com/ffip/iotgateway/internal/device"
+	"github.com/ffip/iotgateway/serial"
+	log "github.com/sirupsen/logrus"
 )
 
-//SENSUS ..
+// SENSUS ..
 type SENSUS struct {
 	//组合Device
 	device.Device

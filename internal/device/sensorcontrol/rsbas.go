@@ -2,7 +2,9 @@ package sensorcontrol
 
 import (
 	"encoding/json"
-	"github.com/yjiong/iotgateway/internal/device"
+
+	"github.com/ffip/iotgateway/internal/device"
+
 	//"errors"
 	"fmt"
 	"strconv"
@@ -10,11 +12,11 @@ import (
 
 	//	"sync"
 	simplejson "github.com/bitly/go-simplejson"
+	"github.com/ffip/iotgateway/serial"
 	log "github.com/sirupsen/logrus"
-	"github.com/yjiong/iotgateway/serial"
 )
 
-//RSBAS ..
+// RSBAS ..
 type RSBAS struct {
 	//组合Device
 	device.Device
@@ -31,7 +33,7 @@ func init() {
 	device.RegDevice["RSBAS"] = &RSBAS{}
 }
 
-//NewDev ..
+// NewDev ..
 func (d *RSBAS) NewDev(id string, ele map[string]string) (device.Devicerwer, error) {
 	ndev := new(RSBAS)
 	ndev.Device = d.Device.NewDev(id, ele)
@@ -66,7 +68,7 @@ func (d *RSBAS) GetElement() (device.Dict, error) {
 
 /***********************设备的参数说明帮助***********************************/
 
-//HelpDoc ..
+// HelpDoc ..
 func (d *RSBAS) HelpDoc() interface{} {
 	conn := device.Dict{
 		device.DevAddr: "设备地址",
@@ -106,7 +108,7 @@ func (d *RSBAS) HelpDoc() interface{} {
 
 /***************************************添加设备参数检验**********************************************/
 
-//CheckKey ..
+// CheckKey ..
 func (d *RSBAS) CheckKey(ele device.Dict) (bool, error) {
 	return true, nil
 }
@@ -128,7 +130,7 @@ func (d *RSBAS) rDataSum(data []byte) byte {
 	return device.IntToBytes(sum & 0xff)[3]
 }
 
-//RWDevValue ..
+// RWDevValue ..
 func (d *RSBAS) RWDevValue(rw string, m device.Dict) (ret device.Dict, err error) {
 	//log.SetLevel(log.DebugLevel)
 	serMutex := device.Mutex[d.Commif]

@@ -8,13 +8,13 @@ import (
 	//"google.golang.org/grpc/codes"
 
 	sjson "github.com/bitly/go-simplejson"
+	pb "github.com/ffip/iotgateway/api"
+	"github.com/ffip/iotgateway/internal/device"
+	"github.com/ffip/iotgateway/internal/gateway"
 	log "github.com/sirupsen/logrus"
-	pb "github.com/yjiong/iotgateway/api"
-	"github.com/yjiong/iotgateway/internal/device"
-	"github.com/yjiong/iotgateway/internal/gateway"
 )
 
-//ElectricMeterapi ..
+// ElectricMeterapi ..
 type ElectricMeterapi struct {
 	gw *gateway.Gateway
 }
@@ -26,7 +26,7 @@ func NewElectricMeterapi(gateway *gateway.Gateway) *ElectricMeterapi {
 	}
 }
 
-//ElectricMeterUpdate ....
+// ElectricMeterUpdate ....
 func (p *ElectricMeterapi) ElectricMeterUpdate(ctx context.Context, req *pb.ElectricMeterUpdateRequest) (*pb.ElectricMeterUpdateResponse, error) {
 	gateway.GrpcMsg = "req"
 	defer func() {

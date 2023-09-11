@@ -9,13 +9,13 @@ import (
 	//log "github.com/sirupsen/logrus"
 
 	sjson "github.com/bitly/go-simplejson"
+	pb "github.com/ffip/iotgateway/api"
+	"github.com/ffip/iotgateway/internal/device"
+	"github.com/ffip/iotgateway/internal/gateway"
 	log "github.com/sirupsen/logrus"
-	pb "github.com/yjiong/iotgateway/api"
-	"github.com/yjiong/iotgateway/internal/device"
-	"github.com/yjiong/iotgateway/internal/gateway"
 )
 
-//ModbusRtuapi ..
+// ModbusRtuapi ..
 type ModbusRtuapi struct {
 	gw *gateway.Gateway
 }
@@ -27,7 +27,7 @@ func NewModbusRtuapi(gateway *gateway.Gateway) *ModbusRtuapi {
 	}
 }
 
-//ModbusRtuUpdate ....
+// ModbusRtuUpdate ....
 func (p *ModbusRtuapi) ModbusRtuUpdate(ctx context.Context, req *pb.ModbusRtuUpdateRequest) (*pb.ModbusRtuUpdateResponse, error) {
 	gateway.GrpcMsg = "req"
 	defer func() {

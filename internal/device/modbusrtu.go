@@ -6,9 +6,10 @@ import (
 	"fmt"
 	"strconv"
 	"time"
+
 	//	"sync"
 	//log "github.com/sirupsen/logrus"
-	"github.com/yjiong/iotgateway/modbus"
+	"github.com/ffip/iotgateway/modbus"
 )
 
 // ModbusRtu struct

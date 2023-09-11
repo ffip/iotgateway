@@ -7,9 +7,10 @@ import (
 	"time"
 
 	simplejson "github.com/bitly/go-simplejson"
+	. "github.com/ffip/iotgateway/internal/device"
 	log "github.com/sirupsen/logrus"
 	. "github.com/smartystreets/goconvey/convey"
-	. "github.com/yjiong/iotgateway/internal/device"
+	"github.com/yjiong/iotgateway/internal/device"
 )
 
 func TestDirve(t *testing.T) {

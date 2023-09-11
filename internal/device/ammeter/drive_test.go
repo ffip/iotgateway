@@ -7,9 +7,10 @@ import (
 	"time"
 
 	simplejson "github.com/bitly/go-simplejson"
+	. "github.com/ffip/iotgateway/internal/device"
 	log "github.com/sirupsen/logrus"
 	. "github.com/smartystreets/goconvey/convey"
-	. "github.com/yjiong/iotgateway/internal/device"
+	"github.com/yjiong/iotgateway/internal/device"
 )
 
 func TestDirve(t *testing.T) {
@@ -21,8 +22,8 @@ func TestDirve(t *testing.T) {
 	//r := PMC340{}
 	tval, _ := r.NewDev("TestDevice", map[string]string{
 		device.DevAddr: "1100642246",
-		device.DevType:   "DDZY422N",
-		"commif":  "rs485-1",
+		device.DevType: "DDZY422N",
+		"commif":       "rs485-1",
 		//"Parity": "E",
 		//"BaudRate": "2400",
 		//"BaudRate": "9600",

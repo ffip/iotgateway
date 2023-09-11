@@ -7,10 +7,10 @@ import (
 	"sync"
 	"time"
 
+	"github.com/ffip/iotgateway/config"
+	"github.com/ffip/iotgateway/internal/common"
+	"github.com/ffip/iotgateway/serial"
 	log "github.com/sirupsen/logrus"
-	"github.com/yjiong/iotgateway/config"
-	"github.com/yjiong/iotgateway/internal/common"
-	"github.com/yjiong/iotgateway/serial"
 )
 
 // RegDevice ..
@@ -166,7 +166,7 @@ func Float32ToByte(float float32) []byte {
 	return bytes
 }
 
-//ByteToFloat32 ..
+// ByteToFloat32 ..
 func ByteToFloat32(bytes []byte) float32 {
 	bits := binary.LittleEndian.Uint32(bytes)
 
@@ -189,7 +189,7 @@ func ByteToFloat64(bytes []byte) float64 {
 	return math.Float64frombits(bits)
 }
 
-//SerialRead ..
+// SerialRead ..
 func SerialRead(serport serial.Port, timeout time.Duration, results []byte) (rblen int, err error) {
 	go func() {
 		for {
@@ -227,7 +227,7 @@ func SerialRead(serport serial.Port, timeout time.Duration, results []byte) (rbl
 	return
 }
 
-//StringReverse ...
+// StringReverse ...
 func StringReverse(str string) string {
 	var rstr string
 	slicstr := []byte(str)
@@ -237,7 +237,7 @@ func StringReverse(str string) string {
 	return rstr
 }
 
-//HexStringReverse ...
+// HexStringReverse ...
 func HexStringReverse(str string) string {
 	var rstr string
 	slicstr := []byte(str)

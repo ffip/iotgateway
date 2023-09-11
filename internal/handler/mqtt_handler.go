@@ -9,14 +9,15 @@ import (
 	"strconv"
 	"sync"
 	"time"
+
 	//	"bytes"
 	//	"encoding/base64"
 	//	"regexp"
 	//	"strconv"
 	simplejson "github.com/bitly/go-simplejson"
 	mqtt "github.com/eclipse/paho.mqtt.golang"
+	"github.com/ffip/iotgateway/internal/common"
 	log "github.com/sirupsen/logrus"
-	"github.com/yjiong/iotgateway/internal/common"
 )
 
 // DataDownPayload ...
@@ -219,7 +220,7 @@ func (h *MQTTHandler) onConnectionLost(c mqtt.Client, reason error) {
 	h.LostConnectTime = time.Now()
 }
 
-//IsConnected ..
+// IsConnected ..
 func (h *MQTTHandler) IsConnected() bool {
 	return h.conn.IsConnected()
 }

@@ -4,9 +4,11 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	log "github.com/sirupsen/logrus"
-	"github.com/yjiong/iotgateway/internal/device"
 	"math"
+
+	"github.com/ffip/iotgateway/internal/device"
+	log "github.com/sirupsen/logrus"
+
 	//simplejson "github.com/bitly/go-simplejson"
 	"strconv"
 	//"strings"
@@ -20,7 +22,7 @@ var onoff = map[int]string{
 
 var setonoff = map[int]string{
 	0:      "off",
-	0XFF00: "on",
+	0xFF00: "on",
 }
 
 var filtersign = map[int]string{

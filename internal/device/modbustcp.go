@@ -9,9 +9,10 @@ import (
 	"reflect"
 	"strconv"
 	"time"
+
 	//	"sync"
+	"github.com/ffip/iotgateway/modbus"
 	log "github.com/sirupsen/logrus"
-	"github.com/yjiong/iotgateway/modbus"
 )
 
 // ModbusTcp ..

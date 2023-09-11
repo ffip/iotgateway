@@ -2,19 +2,21 @@ package devapi
 
 import (
 	"encoding/json"
+
 	"golang.org/x/net/context"
+
 	//"google.golang.org/grpc"
 	//"google.golang.org/grpc/codes"
 	//log "github.com/sirupsen/logrus"
 
 	sjson "github.com/bitly/go-simplejson"
+	pb "github.com/ffip/iotgateway/api"
+	"github.com/ffip/iotgateway/internal/device"
+	"github.com/ffip/iotgateway/internal/gateway"
 	log "github.com/sirupsen/logrus"
-	pb "github.com/yjiong/iotgateway/api"
-	"github.com/yjiong/iotgateway/internal/device"
-	"github.com/yjiong/iotgateway/internal/gateway"
 )
 
-//ModbusTcpapi ..
+// ModbusTcpapi ..
 type ModbusTcpapi struct {
 	gw *gateway.Gateway
 }
@@ -26,7 +28,7 @@ func NewModbusTcpapi(gateway *gateway.Gateway) *ModbusTcpapi {
 	}
 }
 
-//ModbusTCPUpdate ....
+// ModbusTCPUpdate ....
 func (p *ModbusTcpapi) ModbusTCPUpdate(ctx context.Context, req *pb.ModbusTcpUpdateRequest) (*pb.ModbusTcpUpdateResponse, error) {
 	gateway.GrpcMsg = "req"
 	defer func() {

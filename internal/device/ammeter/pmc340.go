@@ -4,18 +4,19 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/yjiong/iotgateway/internal/device"
 	"reflect"
 	"regexp"
 	"strconv"
 	"strings"
 	"time"
 
+	"github.com/ffip/iotgateway/internal/device"
+
+	"github.com/ffip/iotgateway/serial"
 	log "github.com/sirupsen/logrus"
-	"github.com/yjiong/iotgateway/serial"
 )
 
-//PMC340 ..
+// PMC340 ..
 type PMC340 struct {
 	//组合Device
 	device.Device `json:"device"`

@@ -6,11 +6,11 @@ import (
 	"time"
 
 	simplejson "github.com/bitly/go-simplejson"
+	"github.com/ffip/iotgateway/serial"
 	log "github.com/sirupsen/logrus"
-	"github.com/yjiong/iotgateway/serial"
 )
 
-//RemotePort ...
+// RemotePort ...
 var RemotePort serial.Port
 var sp string
 var readInterval int
@@ -92,7 +92,7 @@ func Wser(data []byte) error {
 	return err
 }
 
-//Rser ...
+// Rser ...
 func Rser() (results []byte, err error) {
 	var len int
 	results = make([]byte, 256)
